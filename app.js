@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static('./public'));;
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/builds/development/index.html');
+    res.sendFile(__dirname + '/builds/production/index.html');
 });
 
 app.get('/blog', (req, res) => {

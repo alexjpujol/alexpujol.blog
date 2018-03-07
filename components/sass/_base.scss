@@ -52,7 +52,7 @@ body {
 }
 
 .main {
-    flex: 3;
+    flex: 4;
     display: flex;
     flex-flow: row wrap;
 
@@ -68,6 +68,8 @@ body {
 .about {
     flex: 1;
     padding: 1%;
+    height: 80vh;
+    overflow: scroll;
 
     a {
         color: white;
@@ -88,22 +90,23 @@ body {
     flex-flow: row wrap;
 
     padding: 1%;
-    height: 70vh;
-    overflow: scroll
+    height: 80vh;
+    overflow: scroll;
+
+    img {
+        cursor: pointer;
+    }
 
     footer {
         position: absolute;
         bottom: 0px;
         right: 10px;
-        color: white
+        color: white;
     }
 }
 
 .photo {
-
     margin: 10px
-    // margin: 10px;
-    // box-shadow: 10px 10px;
 }
 
 img {
@@ -120,13 +123,11 @@ img:hover {
 
 .modal {
     display: none;
-    width: 300px;
+    width: 350px;
     height: 280px;
     position: absolute;
-    top: 25%;
-    bottom: 25%;
-    left: 20%;
-    right: 20%;
+    top: 15%;
+    left: 40%;
 
     .fa-times {
         position: absolute;
