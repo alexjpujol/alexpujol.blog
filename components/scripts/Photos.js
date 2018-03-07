@@ -1,12 +1,24 @@
 const Photos = (() => {
-    const eachPhoto = document.querySelectorAll('.photo');
-    eachPhoto.forEach(photo => {
-        photo.addEventListener('click', e => {
-            const photoURL = e.target.src;
-            const modalDiv = document.querySelector('.modal');
+
+    const modalDiv = document.querySelector('.modal');
+    const icon = document.querySelector('.fa-times');
+
+    const populateModal = photo => {
+        photo.addEventListener("click", photo => {
+            const photoURL = photo.target.src;
             const modalHTML = document.querySelector('#modal-img');
             modalHTML.setAttribute("src", `${photoURL}`);
-            modalDiv.style.display = "block";
-        })
+            modalDiv.style.display = "block"; 
+        });
+    }
+
+    const clickCloseModal = icon => {
+        modalDiv.style.display = "none";
+    }
+
+    const eachPhoto = document.querySelectorAll('.photo');
+    eachPhoto.forEach(photo => { 
+        populateModal(photo);
     });
+    icon.addEventListener("click", clickCloseModal);
 })();

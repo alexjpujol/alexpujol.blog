@@ -127,4 +127,14 @@ img:hover {
     bottom: 25%;
     left: 20%;
     right: 20%;
+
+    .fa-times {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+    .fa-times:hover {
+        cursor: pointer
+    }
 }
