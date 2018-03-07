@@ -37,7 +37,7 @@ gulp.task('log', function() {
 //minify html
 gulp.task("js", function () {
     return gulp.src(javascripts)
-        .pipe(concat("script.js"))
+        .pipe(concat("bundle.min.js"))
         .pipe(gulpif(env === 'production', uglify()))
         .pipe(gulp.dest(`${outputDir}js`))
         .pipe(connect.reload());

@@ -3,3 +3,7 @@ const Test = (function() {
     console.log("yet another thing!");
     console.log("how about another one!")
 })();
+
+const Other = (function() {
+    console.log("we like turtles")
+})
