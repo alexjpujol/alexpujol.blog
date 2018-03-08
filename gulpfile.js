@@ -19,10 +19,10 @@ let env,
 env = process.env.NODE_ENV || 'development';
 
 if (env === 'development') {
-    outputDir = 'builds/development/';
+    outputDir = 'builds/development/public/';
     sassStyle = 'expanded'
 } else {
-    outputDir = 'builds/production/';
+    outputDir = 'builds/production/public/';
     sassStyle = 'compressed'
 }
 
@@ -57,7 +57,7 @@ gulp.task('sass', function() {
 gulp.task('html', function() {
     return gulp.src(htmlSources)
         .pipe(gulpif(env === 'production', minifyHTML()))
-        .pipe(gulpif(env === 'production', gulp.dest(`${outputDir}`)))
+        .pipe(gulpif(env === 'production', gulp.dest('builds/production/')))
         .pipe(connect.reload());
 });
 
