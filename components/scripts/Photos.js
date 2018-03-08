@@ -22,3 +22,5 @@ const Photos = (() => {
     });
     icon.addEventListener("click", clickCloseModal);
 })();
+
+console.log("hi")
