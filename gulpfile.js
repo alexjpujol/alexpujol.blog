@@ -62,7 +62,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('builds/development/images/**/*.*')
+    return gulp.src('builds/development/public/images/**/*.*')
         .pipe(gulpif(env === 'production', imagemin({
             progressive: true,
             svgoPlugins: [{ removeViewBox: false}],
@@ -73,7 +73,7 @@ gulp.task('images', function() {
 })
 
 gulp.task('json', function() {
-    return gulp.src('builds/development/js/*.json')
+    return gulp.src('builds/development/public/js/*.json')
         .pipe(gulpif(env === 'production', minifyJSON()))
         .pipe(gulpif(env === 'production', gulp.dest('builds/production/js')))
         .pipe(connect.reload());
