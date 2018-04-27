@@ -76,7 +76,7 @@ body {
         url('../images/pic5.JPG');
     background-size: cover;
     background-repeat: repeat;
-    color: white
+    color: white;
 }
 
 .about {
@@ -95,6 +95,10 @@ body {
 
     p {
         text-align: justify
+    }
+
+    .keyword {
+        font-weight: 800
     }
 }
 

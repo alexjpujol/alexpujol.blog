@@ -90,6 +90,10 @@ body {
   text-align: justify;
 }
 
+.about .keyword {
+  font-weight: 800;
+}
+
 .photo-section {
   flex: 1;
   display: flex;
