@@ -46,7 +46,7 @@ const Photos = (() => {
         }) 
     }
 
-    const eachPhoto = document.querySelectorAll('.photo');
+    const eachPhoto = document.querySelectorAll('.photo img');
     eachPhoto.forEach(photo => { 
         populateModal(photo);
     });
