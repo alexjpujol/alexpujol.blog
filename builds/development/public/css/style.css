@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0px auto;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -14,11 +14,11 @@ body {
   display: flex;
   height: 100vh;
   margin: 0px auto;
-  flex-wrap: wrap;
 }
 
 .sidebar {
   flex: 1;
+  min-width: 250px;
   border-right: 1px solid black;
   text-align: right;
   padding-right: 30px;
@@ -64,6 +64,7 @@ body {
   flex: 4;
   display: flex;
   flex-flow: row wrap;
+  overflow: scroll;
   padding-left: 30px;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("../images/pic5.JPG");
   background-size: cover;
@@ -74,8 +75,9 @@ body {
 .about {
   flex: 1;
   padding: 1%;
-  height: 80vh;
+  height: 90vh;
   overflow: scroll;
+  min-width: 340px;
 }
 
 .about a {
@@ -99,7 +101,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   padding: 1%;
-  height: 80vh;
+  height: 90vh;
   overflow: scroll;
 }
 
@@ -126,6 +128,10 @@ body {
   color: white;
 }
 
+.photo-section footer p, .modal footer p {
+  margin: 0;
+}
+
 .photo {
   margin: 10px;
 }
@@ -147,4 +153,46 @@ body {
 
 .modal .fa-times:hover {
   cursor: pointer;
+}
+
+@media (max-width: 922px) {
+  footer p {
+    display: none;
+  }
+  .main {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    display: block;
+  }
+  .sidebar {
+    padding: 2%;
+  }
+  .sidebar .links {
+    text-align: left;
+  }
+  .sidebar .links h3 {
+    margin: 1%;
+  }
+  .sidebar .links li {
+    display: inline-block;
+    margin: 1%;
+  }
+  .main {
+    flex-flow: column wrap;
+    padding: 2%;
+  }
+  .links h1, ul {
+    margin: 0;
+    padding: 0;
+  }
+  .soccer, .logo {
+    display: none;
+  }
+  .photo-section {
+    justify-content: center;
+  }
 }

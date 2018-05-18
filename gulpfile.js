@@ -18,6 +18,8 @@ let env,
 
 env = process.env.NODE_ENV || 'development';
 
+//build for production: NODE_ENV=production gulp
+
 if (env === 'development') {
     outputDir = 'builds/development/public/';
     sassStyle = 'expanded'
