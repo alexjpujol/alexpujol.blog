@@ -4,6 +4,7 @@
   "description": "Alex's personal site",
   "main": "app.js",
   "scripts": {
+    "build-prod": "NODE_ENV=production gulp",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve-dev": "nodemon app.js"
   },

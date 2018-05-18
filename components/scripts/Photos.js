@@ -3,12 +3,14 @@ const Photos = (() => {
     const modalDiv = document.querySelector('.modal');
     const modalImg = document.querySelector('#modal-img');
     const icon = document.querySelector('.fa-times');
+    let photoOrder;
+    let newPhotoOrder;
 
     const populateModal = photo => {
         photo.addEventListener("click", photo => {
             const photoURL = photo.target.src;
-            const photoOrder = photo.target.attributes[2].nodeValue;
-            modalImg.setAttribute("data-order", `${photoOrder}`);
+            photoOrder = parseInt(photo.target.attributes[2].nodeValue);
+            modalImg.setAttribute("data-order", photoOrder);
             modalImg.setAttribute("src", `${photoURL}`);
             modalDiv.style.display = "block"; 
         });
@@ -18,7 +20,7 @@ const Photos = (() => {
         modalDiv.style.display = "none";
     }
 
-    const escCloseModal= () => {
+    const escCloseModal = () => {
         window.addEventListener("keydown", e => {
             if (e.keyCode === 27) {
                 modalDiv.style.display = "none";
@@ -26,25 +28,22 @@ const Photos = (() => {
         })
     }
 
-    const scrollModal = () => {
-        const photos = document.querySelectorAll(".photo img");
-        const photoSRC = [];
-        photos.forEach(photo => {
-            photoSRC.push(photo.src);
-        });
-        console.log(photoSRC)
 
+    const scrollModal = () => {
+        const photos = [...document.querySelectorAll(".photo img")];
         window.addEventListener("keydown", e => {
             if (modalDiv.style.display === 'block') {
                 if (e.keyCode === 37) {
-                    const order = modalImg.getAttribute("data-order");
-                    modalImg.setAttribute("src", )
+                    newPhotoOrder = photoOrder === 0 ? 3 : photoOrder - 1;
+                    modalImg.setAttribute("src", photos[newPhotoOrder].getAttribute("src"));
+                    photoOrder = newPhotoOrder;
                 } else if (e.keyCode === 39) {
-                    console.log("right")
+                    newPhotoOrder = photoOrder === 3 ? 0 : photoOrder + 1;
+                    modalImg.setAttribute("src", photos[newPhotoOrder].getAttribute("src"));
+                    photoOrder = newPhotoOrder;
                 }
             }           
-        })
-        
+        }) 
     }
 
     const eachPhoto = document.querySelectorAll('.photo');
@@ -52,6 +51,7 @@ const Photos = (() => {
         populateModal(photo);
     });
     icon.addEventListener("click", clickCloseModal);
+    icon.addEventListener("touchend", clickCloseModal);
     escCloseModal();
     scrollModal();
 })();
